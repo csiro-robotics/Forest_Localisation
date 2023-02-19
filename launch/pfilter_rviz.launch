@@ -1,0 +1,6 @@
+<launch>
+<node pkg="rviz" type="rviz" name="pfilter_rviz" args="-d $(find forest_localisation)/rviz/pfilter_rviz.rviz"/>
+<node pkg="rviz" type="rviz" name="submap_rviz" args="-d $(find forest_localisation)/rviz/submap_rviz.rviz"/>
+<node pkg="rviz" type="rviz" name="particles_rviz" args="-d $(find forest_localisation)/rviz/pfilter_particles_rviz.rviz"/>
+
+</launch>

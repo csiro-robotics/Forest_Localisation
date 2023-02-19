@@ -1,0 +1,10 @@
+<launch>
+<arg name="file_root_name" value='forestI' />
+<node pkg="forest_localisation" type="forest_localisation_node" name="forest_localisation_node" output="screen">    
+    <param name="root_folder" value = "$(find forest_localisation)/datasets/"/>
+    <param name="save_folder" value="$(find forest_localisation)/datasets/$(arg file_root_name)/experiments/"/>
+    <rosparam file="$(find forest_localisation)/config/$(arg file_root_name)_config.yaml" />
+    <rosparam file="$(find forest_localisation)/config/$(arg file_root_name)_seg_param.yaml" />
+</node>
+
+</launch>

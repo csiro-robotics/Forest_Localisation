@@ -1,0 +1,56 @@
+dataset_name: 'forestI'
+
+#ACM map params
+map_file_name: "forestI_acm.png"         # Name of ACM image file (.png)
+map_image_max_height: 34.28              # [meters] Maximum height above ground observed in the aerial 3D pointcloud
+map_image_frame_x: -231.43               # [meters] x coordinate of ACM origin frame (top left point)        
+map_image_frame_y: 177.08                # [meters] y coordinate of ACM origin frame (top left point)        
+map_image_grid_size: 0.25                # [meters] Grid size of ACM map image
+map_display_window: [617,310,1310,1100]  # [meters] coordinates to display a smaller version acm (visualisation only)
+
+#Ground truth trajectory parameters (for evaluation) 
+groundtruth_trajectory_name: 'global_groundtruth_traj.csv'   # Ground truth trajectory file name
+trajectory_rotation: []                                      #not used 
+trajectory_translation: []                                   #not used 
+
+# Car like model params (Gator robot) 
+wheels_axis_distance: 1.96            # [meters] Distance between the front and rear wheels axis of the robot car 
+gator_data_topic: "gator_info"        # topic of data from the wheeled robot (gator)
+
+#Frames
+base_frame: "base_link"           # Robot's frame 
+map_frame: "map"                  # Map frame
+
+#Lidar accumulation params
+input_lidar_topic: "cloud"             # topic of input cloud
+laser_accumulate_time: 1.5             # [seconds] Time to accumulate the sweep cloud
+compensate_cloud: true                 # Use gravity alignment of sweeps or not
+
+#Particle filtering params
+number_particles: 500             # Number of particles in the Monte Carlo Localisation
+odom_alpha1: 0.1                  # robot motion model uncertainty parameters (Probabilistic Robotics book)
+odom_alpha2: 0.1 
+odom_alpha3: 0.2 
+odom_alpha4: 0.01 
+particle_range_x: 1.0              # [meters] Range distance in x coordiante to initiate particles around the robot's initial position
+particle_range_y: 1.0              # [meters] Range distance in y coordiante to initiate particles around the robot's initial position
+distance_threshold_stopped: 0.1    # [meters] Distance between consecutive odometry poses to determine if the robot has moved
+angle_threshold_stopped: 0.1       # [radians] Angle between consecutive odometry orientations to determine if the robot has moved
+min_landmarks_threshold: 3         # Minimum number of segmented trees to construct UCM and perform resampling 
+initial_pose: [0, 0, 0]            # [meters,meters,radians] [x,y,yaw] robots initial position
+
+#Tree segmentation params
+ground_z_down_threshold: 1.3      # [meters] Minimun height above ground to crop pointcloud
+ground_z_up_threshold: 4.5        # [meters] Maximum height above ground to crop pointcloud 
+downsample_voxel_size: 0.25       # [meters] Voxel size for downsampling the sweep (pointcloud)         
+tree_height: 3.0                  # [meters] minimum height of cluster to classify as a tree
+tolerance: 0.45                   # [meters] minimum distance for clustering points.
+min_cluster_size: 50              # minimum points in euclidean clustering to consider a cluster
+max_cluster_size: 20000           # maximum points in euclidean clustering  to consider a cluster
+trunks_color: [255,255,0]
+
+#Map Matching and UCM params
+ssd_beta: 0.7             # Similarity parameter beta for map matching
+crown_radius: 2.0         # Crown radius of trees represented in the UCM map images   
+number_of_threads: 6      # Number of threads used in the Map Matching algorithm
+
