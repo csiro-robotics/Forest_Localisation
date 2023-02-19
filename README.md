@@ -69,7 +69,7 @@ To visualise the ACM and UCM images, launch the ROS rqt_image_vew node:
 ```bash
 rqt_image_vew
 ```
-then, select the topic `\map_local_images` for visualisation.  
+then, select the topic `/map_local_images` for visualisation.  
 
 Play the rosbag file:
 ```bash
@@ -79,12 +79,12 @@ rosbag play forestI.bag
 
 ### Parameters
 
-The paremeters are set in the `/config/forestI_config.yaml` file. Please refer to the file for more details. 
+The parameters are set in the `/config/forestI_config.yaml` file. Please refer to the file for more details. 
 
 
 ## Citation
 
-If you use any of this code and/or find this work helpfull to your research, please cite:
+If you use any of this code and/or find this work helpful to your research, please cite:
 
 ```
 @ARTICLE{Lima23,
